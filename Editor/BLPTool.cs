@@ -68,7 +68,10 @@ namespace BLPTool
             foreach (CrateSpawner spawner in UnityEngine.Object.FindObjectsOfType<CrateSpawner>(true))
             {
                 CratePreview previewer = spawner.GetComponent<CratePreview>();
-                if (previewer == null) spawner.gameObject.AddComponent<CratePreview>();
+                if(PreviewDefault)
+                    if (previewer == null) spawner.gameObject.AddComponent<CratePreview>();
+                else
+                    if(previewer != null) UnityEngine.Object.Destroy(previewer);
             }
 
             // Remove invalid MatLinks, force previewing
