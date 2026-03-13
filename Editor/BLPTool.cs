@@ -67,7 +67,7 @@ namespace BLPTool
             // Attach CratePreview to CrateSpawners
             foreach (CrateSpawner spawner in UnityEngine.Object.FindObjectsOfType<CrateSpawner>(true))
             {
-                CratePreview previewer = spawner.GetComponent<CratePreview>();
+                CratePreview previewer = spawner.GetComponent<CratePreview>(true);
                 if(PreviewDefault)
                     if (previewer == null) spawner.gameObject.AddComponent<CratePreview>();
                 else
